@@ -1,5 +1,6 @@
 package sv.edu.uesocc.ingenieria.prn335_2017.web.controladores;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -15,16 +16,16 @@ import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Usuario;
 
 @Named(value = "managedBeanUsuario")
 @ViewScoped
-public class ManagedBeanUsuario {
+public class ManagedBeanUsuario implements Serializable {
 
 private UsuarioFacadeLocal user;
 
     public ManagedBeanUsuario() {
 
     }
-   private LazyDataModel<Usuario> modelo; 
+    
     @EJB
-        
+     private LazyDataModel<Usuario> modelo;   
     private UsuarioFacadeLocal ufl;
         private Usuario registro;
         private boolean btnadd = true;
