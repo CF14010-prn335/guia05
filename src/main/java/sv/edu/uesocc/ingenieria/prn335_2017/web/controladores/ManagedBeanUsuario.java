@@ -79,5 +79,50 @@ private UsuarioFacadeLocal user;
             }
             
         }
+        public void btnNuevo(){
+            this.registro=new Usuario();
+           
+            
+            this.btnadd = !this.btnadd;
+        }
+        public void guardarRegistro(){
+            try {
+                
+                if(this.registro != null && this.ufl != null){
+                    
+                                      
+                    if(this.ufl.create(registro)){
+                        this.btnadd=!this.btnadd;
+                        
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Error "+e);
+            }
+        }
+
+    public LazyDataModel<Usuario> getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(LazyDataModel<Usuario> modelo) {
+        this.modelo = modelo;
+    }
+
+    public Usuario getRegistro() {
+        return registro;
+    }
+
+    public void setRegistro(Usuario registro) {
+        this.registro = registro;
+    }
+
+    public boolean isBtnadd() {
+        return btnadd;
+    }
+
+    public void setBtnadd(boolean btnadd) {
+        this.btnadd = btnadd;
+    }
       
 }
