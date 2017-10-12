@@ -18,7 +18,7 @@
     <class>sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.TipoSeccion</class>
     <class>sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Usuario</class>
     <class>sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.UsuarioRolCategoria</class>
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>
 </persistence>

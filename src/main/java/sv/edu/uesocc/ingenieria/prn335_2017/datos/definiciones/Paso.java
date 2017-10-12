@@ -11,6 +11,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -54,15 +55,15 @@ public class Paso implements Serializable {
     @Size(max = 2147483647)
     @Column(name = "comentarios", length = 2147483647)
     private String comentarios;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "paso")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "paso", fetch = FetchType.LAZY)
     private List<PostPaso> postPasoList;
     @JoinColumns({
         @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
         , @JoinColumn(name = "id_rol", referencedColumnName = "id_rol")})
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private RolCategoria rolCategoria;
     @JoinColumn(name = "id_tipo_paso", referencedColumnName = "id_tipo_paso")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private TipoPaso idTipoPaso;
 
     public Paso() {
@@ -148,7 +149,7 @@ public class Paso implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.Paso[ idPaso=" + idPaso + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Paso[ idPaso=" + idPaso + " ]";
     }
     
 }

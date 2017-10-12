@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -53,7 +54,7 @@ public class TipoPaso implements Serializable {
     @Size(max = 2147483647)
     @Column(name = "descripcion", length = 2147483647)
     private String descripcion;
-    @OneToMany(mappedBy = "idTipoPaso")
+    @OneToMany(mappedBy = "idTipoPaso", fetch = FetchType.LAZY)
     private List<Paso> pasoList;
 
     public TipoPaso() {
@@ -131,7 +132,7 @@ public class TipoPaso implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.TipoPaso[ idTipoPaso=" + idTipoPaso + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.TipoPaso[ idTipoPaso=" + idTipoPaso + " ]";
     }
     
 }

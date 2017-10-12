@@ -12,6 +12,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -81,7 +82,7 @@ public class Usuario implements Serializable {
     @Size(min = 1, max = 50)
     @Column(name = "password", nullable = false, length = 50)
     private String password;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuario", fetch = FetchType.LAZY)
     private List<UsuarioRolCategoria> usuarioRolCategoriaList;
 
     public Usuario() {
@@ -195,7 +196,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.Usuario[ idUsuario=" + idUsuario + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Usuario[ idUsuario=" + idUsuario + " ]";
     }
     
 }

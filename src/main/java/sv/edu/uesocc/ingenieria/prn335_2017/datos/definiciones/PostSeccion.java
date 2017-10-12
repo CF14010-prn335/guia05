@@ -10,6 +10,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -42,7 +43,7 @@ public class PostSeccion implements Serializable {
     @Column(name = "valor", nullable = false, length = 2147483647)
     private String valor;
     @JoinColumn(name = "id_post", referencedColumnName = "id_post", nullable = false, insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Post post;
 
     public PostSeccion() {
@@ -107,7 +108,7 @@ public class PostSeccion implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.PostSeccion[ postSeccionPK=" + postSeccionPK + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.PostSeccion[ postSeccionPK=" + postSeccionPK + " ]";
     }
     
 }

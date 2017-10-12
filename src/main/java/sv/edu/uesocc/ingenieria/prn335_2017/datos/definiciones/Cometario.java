@@ -10,6 +10,7 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -61,7 +62,7 @@ public class Cometario implements Serializable {
     @Column(name = "aprobado")
     private Boolean aprobado;
     @JoinColumn(name = "id_post", referencedColumnName = "id_post")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Post idPost;
 
     public Cometario() {
@@ -147,7 +148,7 @@ public class Cometario implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.Cometario[ idComentario=" + idComentario + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Cometario[ idComentario=" + idComentario + " ]";
     }
     
 }

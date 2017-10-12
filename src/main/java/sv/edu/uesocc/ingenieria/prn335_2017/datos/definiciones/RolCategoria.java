@@ -11,6 +11,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -39,15 +40,15 @@ public class RolCategoria implements Serializable {
     protected RolCategoriaPK rolCategoriaPK;
     @Column(name = "activo")
     private Boolean activo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rolCategoria")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rolCategoria", fetch = FetchType.LAZY)
     private List<UsuarioRolCategoria> usuarioRolCategoriaList;
     @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria", nullable = false, insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Categoria categoria;
     @JoinColumn(name = "id_rol", referencedColumnName = "id_rol", nullable = false, insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Rol rol;
-    @OneToMany(mappedBy = "rolCategoria")
+    @OneToMany(mappedBy = "rolCategoria", fetch = FetchType.LAZY)
     private List<Paso> pasoList;
 
     public RolCategoria() {
@@ -133,7 +134,7 @@ public class RolCategoria implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.RolCategoria[ rolCategoriaPK=" + rolCategoriaPK + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.RolCategoria[ rolCategoriaPK=" + rolCategoriaPK + " ]";
     }
     
 }

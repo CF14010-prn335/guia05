@@ -17,17 +17,21 @@ import sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Usuario;
 @Named(value = "managedBeanUsuario")
 @ViewScoped
 public class ManagedBeanUsuario implements Serializable {
-
+    
+@EJB
 private UsuarioFacadeLocal user;
 
     public ManagedBeanUsuario() {
 
     }
     
-    @EJB
+    
      private LazyDataModel<Usuario> modelo;   
-    private UsuarioFacadeLocal ufl;
-        private Usuario registro;
+     
+   @EJB
+     private UsuarioFacadeLocal ufl;
+     
+    private Usuario registro;
         private boolean btnadd = true;
         
          @PostConstruct

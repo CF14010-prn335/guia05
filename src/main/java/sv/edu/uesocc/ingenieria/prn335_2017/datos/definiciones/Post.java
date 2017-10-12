@@ -12,6 +12,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -66,19 +67,19 @@ public class Post implements Serializable {
     @Size(max = 2147483647)
     @Column(name = "descripcion", length = 2147483647)
     private String descripcion;
-    @ManyToMany(mappedBy = "postList")
+    @ManyToMany(mappedBy = "postList", fetch = FetchType.LAZY)
     private List<Meta> metaList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post", fetch = FetchType.LAZY)
     private List<PostPaso> postPasoList;
-    @OneToMany(mappedBy = "idPost")
+    @OneToMany(mappedBy = "idPost", fetch = FetchType.LAZY)
     private List<Cometario> cometarioList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post", fetch = FetchType.LAZY)
     private List<PostSeccion> postSeccionList;
     @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Categoria idCategoria;
     @JoinColumn(name = "id_tipo_post", referencedColumnName = "id_tipo_post")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private TipoPost idTipoPost;
 
     public Post() {
@@ -208,7 +209,7 @@ public class Post implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.Post[ idPost=" + idPost + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Post[ idPost=" + idPost + " ]";
     }
     
 }

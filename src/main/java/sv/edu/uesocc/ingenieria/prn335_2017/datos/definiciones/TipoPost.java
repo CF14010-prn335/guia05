@@ -11,6 +11,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -54,9 +55,9 @@ public class TipoPost implements Serializable {
     @Size(max = 2147483647)
     @Column(name = "descripcion", length = 2147483647)
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoPost")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoPost", fetch = FetchType.LAZY)
     private List<TipoPostSeccion> tipoPostSeccionList;
-    @OneToMany(mappedBy = "idTipoPost")
+    @OneToMany(mappedBy = "idTipoPost", fetch = FetchType.LAZY)
     private List<Post> postList;
 
     public TipoPost() {
@@ -143,7 +144,7 @@ public class TipoPost implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.TipoPost[ idTipoPost=" + idTipoPost + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.TipoPost[ idTipoPost=" + idTipoPost + " ]";
     }
     
 }

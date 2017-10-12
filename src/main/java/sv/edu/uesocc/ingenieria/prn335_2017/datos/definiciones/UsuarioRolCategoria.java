@@ -9,6 +9,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
@@ -40,10 +41,10 @@ public class UsuarioRolCategoria implements Serializable {
     @JoinColumns({
         @JoinColumn(name = "id_categoria", referencedColumnName = "id_categoria", nullable = false, insertable = false, updatable = false)
         , @JoinColumn(name = "id_rol", referencedColumnName = "id_rol", nullable = false, insertable = false, updatable = false)})
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private RolCategoria rolCategoria;
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario", nullable = false, insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Usuario usuario;
 
     public UsuarioRolCategoria() {
@@ -111,7 +112,7 @@ public class UsuarioRolCategoria implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.UsuarioRolCategoria[ usuarioRolCategoriaPK=" + usuarioRolCategoriaPK + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.UsuarioRolCategoria[ usuarioRolCategoriaPK=" + usuarioRolCategoriaPK + " ]";
     }
     
 }

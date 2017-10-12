@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -58,7 +59,7 @@ public class Meta implements Serializable {
     @JoinTable(name = "post_meta", joinColumns = {
         @JoinColumn(name = "id_meta", referencedColumnName = "id_meta", nullable = false)}, inverseJoinColumns = {
         @JoinColumn(name = "id_post", referencedColumnName = "id_post", nullable = false)})
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Post> postList;
 
     public Meta() {
@@ -136,7 +137,7 @@ public class Meta implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.Meta[ idMeta=" + idMeta + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.Meta[ idMeta=" + idMeta + " ]";
     }
     
 }

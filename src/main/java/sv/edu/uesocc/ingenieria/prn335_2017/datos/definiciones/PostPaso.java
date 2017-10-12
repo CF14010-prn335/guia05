@@ -9,6 +9,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -50,10 +51,10 @@ public class PostPaso implements Serializable {
     @Column(name = "comentarios", length = 2147483647)
     private String comentarios;
     @JoinColumn(name = "id_paso", referencedColumnName = "id_paso", nullable = false, insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Paso paso;
     @JoinColumn(name = "id_post", referencedColumnName = "id_post", nullable = false, insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Post post;
 
     public PostPaso() {
@@ -153,7 +154,7 @@ public class PostPaso implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.PostPaso[ postPasoPK=" + postPasoPK + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.PostPaso[ postPasoPK=" + postPasoPK + " ]";
     }
     
 }

@@ -94,7 +94,7 @@ public class UsuarioRolCategoriaPK implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.UsuarioRolCategoriaPK[ idUsuario=" + idUsuario + ", idCategoria=" + idCategoria + ", idRol=" + idRol + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.UsuarioRolCategoriaPK[ idUsuario=" + idUsuario + ", idCategoria=" + idCategoria + ", idRol=" + idRol + " ]";
     }
     
 }

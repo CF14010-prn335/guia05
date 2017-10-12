@@ -77,7 +77,7 @@ public class RolCategoriaPK implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.RolCategoriaPK[ idRol=" + idRol + ", idCategoria=" + idCategoria + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.RolCategoriaPK[ idRol=" + idRol + ", idCategoria=" + idCategoria + " ]";
     }
     
 }

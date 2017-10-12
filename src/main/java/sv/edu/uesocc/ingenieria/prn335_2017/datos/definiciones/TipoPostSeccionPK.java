@@ -77,7 +77,7 @@ public class TipoPostSeccionPK implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.TipoPostSeccionPK[ idSeccion=" + idSeccion + ", idTipoPost=" + idTipoPost + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.TipoPostSeccionPK[ idSeccion=" + idSeccion + ", idTipoPost=" + idTipoPost + " ]";
     }
     
 }

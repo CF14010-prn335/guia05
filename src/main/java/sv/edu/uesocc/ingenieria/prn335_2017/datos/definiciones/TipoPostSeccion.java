@@ -10,6 +10,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -46,10 +47,10 @@ public class TipoPostSeccion implements Serializable {
     @Column(name = "peso", nullable = false)
     private int peso;
     @JoinColumn(name = "id_seccion", referencedColumnName = "id_seccion", nullable = false, insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Seccion seccion;
     @JoinColumn(name = "id_tipo_post", referencedColumnName = "id_tipo_post", nullable = false, insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private TipoPost tipoPost;
 
     public TipoPostSeccion() {
@@ -138,7 +139,7 @@ public class TipoPostSeccion implements Serializable {
 
     @Override
     public String toString() {
-        return "sv.ed.uesocc.ingenieria.prn335_2017.datos.definiciones.TipoPostSeccion[ tipoPostSeccionPK=" + tipoPostSeccionPK + " ]";
+        return "sv.edu.uesocc.ingenieria.prn335_2017.datos.definiciones.TipoPostSeccion[ tipoPostSeccionPK=" + tipoPostSeccionPK + " ]";
     }
     
 }
