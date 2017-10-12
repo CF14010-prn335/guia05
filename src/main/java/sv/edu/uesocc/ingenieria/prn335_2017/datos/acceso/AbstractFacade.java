@@ -70,8 +70,8 @@ public abstract class AbstractFacade<T> {
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         javax.persistence.Query q = getEntityManager().createQuery(cq);
-        q.setMaxResults(inicio);
-        q.setFirstResult(fin);
+        q.setMaxResults(fin);
+        q.setFirstResult(inicio);
         return q.getResultList();
     }
 

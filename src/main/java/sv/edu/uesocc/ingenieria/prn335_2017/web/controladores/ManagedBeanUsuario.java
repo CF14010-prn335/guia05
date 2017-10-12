@@ -28,7 +28,7 @@ private UsuarioFacadeLocal user;
     
      private LazyDataModel<Usuario> modelo;   
      
-   @EJB
+  
      private UsuarioFacadeLocal ufl;
      
     private Usuario registro;
@@ -38,7 +38,7 @@ private UsuarioFacadeLocal user;
         private void inicio(){
             
             try {
-                this.modelo = new LazyDataModel<Usuario>() {
+                this.setModelo (new LazyDataModel<Usuario>() {
                     @Override
                     public Object getRowKey(Usuario object){
                         if(object != null){
@@ -78,7 +78,7 @@ private UsuarioFacadeLocal user;
                             return salida;
                         
                     }
-};
+                    });
             } catch (Exception e) {
                 System.out.println("Error "+e);
             }
